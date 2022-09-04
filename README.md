@@ -4,7 +4,7 @@ And Add the ENV defintion when depoly..
 
 # Xray-Docker on cloud docker service starting from "K"
 
-通过ws传输的(vmess、vless、trojan、shadowsocks、socks)等协议
+通过ws传输的(vmess、vless、trojan、shadowsocks)等协议
 
 # 请勿使用常用的账号部署此项目，以免封号！！
 
@@ -89,22 +89,14 @@ Trojan-go
 }
 ```
 
-ShadowSocks
-
-```bash
-服务器地址: xxx.koyeb.app
-端口: 443
-密码：24b4b1e1-7a89-45f6-858c-242cf53b5bdb
-加密：chacha20-ietf-poly1305
-插件程序：xray-plugin_windows_amd64.exe
-说明：需将插件 https://github.com/shadowsocks/xray-plugin/releases 下载解压后放至shadowsocks同目录
-插件选项: tls;host=xxx.prod-glb.koyeb.app;path=/path/ss
-```
-
 ## 注意
 
 请勿滥用本仓库
 
-## 赞助我们
+## Thanks
 
-![afdian-MisakaNo.jpg](https://s2.loli.net/2021/12/25/SimocqwhVg89NQJ.jpg)
+https://github.com/zhisibuyu521/KOXray
+
+## Sponser
+
+
