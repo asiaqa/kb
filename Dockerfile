@@ -1,6 +1,6 @@
 FROM alpine:edge
-ARG USER_ID=0
-ARG GROUP_ID=0
+ARG USER_ID
+ARG GROUP_ID
 ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c"
 #ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip" 
 ENV CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip"
