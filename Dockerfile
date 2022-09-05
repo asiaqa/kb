@@ -1,5 +1,6 @@
 FROM alpine:edge
-
+ARG USER_ID=0
+ARG GROUP_ID=0
 ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c"
 #ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip" 
 ENV CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip"
@@ -31,6 +32,8 @@ ADD start.sh /start.sh
 ADD etc/config.ini /tmp/config.ini
 ADD stupid.sh /stupid.sh
 
+RUN addgroup --gid $GROUP_ID ezjc && adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID ezjc
+USER ezjc
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget && \
     apk add --no-cache nano net-tools tzdata openssh && \
