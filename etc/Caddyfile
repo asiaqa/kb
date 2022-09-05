@@ -9,8 +9,8 @@ header {
     Referrer-Policy no-referrer-when-downgrade
 }
 
-basicauth /$AUUID/* {
-    $AUUID $MYUUID-HASH
+basicauth /$MYPATH/* {
+    $MYPATH $MYUUID-HASH
 }
 
 @websocket_xray_vmess {
