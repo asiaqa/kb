@@ -2,7 +2,7 @@
 
 #tor &
 ssh-keygen -A
-cat /etc/caddy/Caddyfile | sed -e "s/\$FRP_USER/$FRP_USER/g" -e "s/\$FRP_PASS/$FRP_USER/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYUUID-HASH/$(caddy hash-password --plaintext $AUUID)/g" >/etc/caddy/Caddyfile
+cat /etc/caddy/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_NAME-HASH/$(caddy hash-password --plaintext $FRP_NAME)/g" >/etc/caddy/Caddyfile
 cp /x.json /temp.json
 cp /frp/frpc.ini /frpc.ini
 cat /frp/frpc.ini | sed -e "s/\$FRP_SITE/$FRP_SITE/g" -e "s/\$FRP_USER/$FRP_USER/g" -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$FRP_PASS/$FRP_PASS/g" -e "s/\$FRP_SSH/$FRP_SSH/g" -e "s/\$FRP_PROTO/$FRP_PROTO/g" -e "s/\$FRP_RP/$FRP_RP/g" >/frpc.ini
