@@ -34,7 +34,7 @@ ADD stupid.sh /stupid.sh
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget && \
     apk add --no-cache nano net-tools tzdata openssh && \
-    echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && \
+    echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
     adduser -h /home/$SH_USER -s /bin/sh -D $SH_USER && \
     echo -n $SH_USER:$SH_PASS | chpasswd && \
     cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
