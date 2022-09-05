@@ -34,11 +34,11 @@ RUN apk update && \
     apk add --no-cache nano net-tools tzdata openssh && \
     adduser -h /home/$SH_USER -s /bin/sh -D $SH_USER && \
     echo -n $SH_USER:$SH_PASS | chpasswd && \
+    echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
     cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
 RUN addgroup -S $USER && adduser -S $USER -G $USER
 USER $USER
-RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
-    wget -O XX.zip $XRAY_LINK && \
+RUN wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
     chmod +x /x && chmod +x /stupid.sh && \
