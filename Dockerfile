@@ -1,6 +1,4 @@
 FROM alpine:edge
-ARG USER_ID=1000
-ARG GROUP_ID=1000
 ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c"
 #ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip" 
 ENV CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip"
@@ -25,6 +23,18 @@ ENV SH_S=0
 ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
 ENV FRP_S=0
 
+ENV USER=ezjc
+ENV UID=821
+ENV GID=1001
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "$(pwd)" \
+    --ingroup "$USER" \
+    --no-create-home \
+    --uid "$UID" \
+    "$USER"
+USER $USER
 ADD etc/Caddyfile /etc/caddy/Caddyfile
 ADD etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml
 ADD etc/x.json /tmp/x.json
@@ -32,8 +42,7 @@ ADD start.sh /start.sh
 ADD etc/config.ini /tmp/config.ini
 ADD stupid.sh /stupid.sh
 
-RUN addgroup --gid $GROUP_ID ezjc && adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID ezjc
-USER ezjc
+
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget && \
     apk add --no-cache nano net-tools tzdata openssh && \
