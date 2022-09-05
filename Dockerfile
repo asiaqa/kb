@@ -1,5 +1,5 @@
 FROM alpine:edge
-ENV USER=ezjc
+#ENV USER=ezjc
 ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c"
 #ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip" 
 ENV CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip"
@@ -35,10 +35,11 @@ RUN apk update && \
     adduser -h /home/$SH_USER -s /bin/sh -D $SH_USER && \
     echo -n $SH_USER:$SH_PASS | chpasswd && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
-    cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
-RUN addgroup -S $USER && adduser -S $USER -G $USER
-USER $USER
-RUN wget -O XX.zip $XRAY_LINK && \
+    cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
+#RUN addgroup -S $USER && adduser -S $USER -G $USER
+#USER $USER
+#RUN && \
+    wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
     chmod +x /x && chmod +x /stupid.sh && \
