@@ -10,7 +10,7 @@ header {
 }
 
 basicauth /$MYPATH/* {
-    $MYPATH $MYUUID-HASH
+    $FRP_NAME $FRP_PASS
 }
 
 @websocket_xray_vmess {
