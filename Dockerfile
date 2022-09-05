@@ -40,7 +40,7 @@ RUN apk update && \
     cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
     wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
-    cp /xray /x && rm /xray && \
+    cp /xxx /x && rm /xxx && \
     chmod +x /x && chmod +x /stupid.sh && \
     rm -rf /var/cache/apk/* && \
     rm -f XX.zip && \
