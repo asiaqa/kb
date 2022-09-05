@@ -56,9 +56,15 @@ path /$MYPATH/socks
 }
 reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 
-handle_path /$MYPATH/ag {
-        reverse_proxy /ag 127.0.0.1:30000
-}
+@websocket_ag {
+        path  /$MYPATH/ag/*
+    }
+reverse_proxy @websocket_ag http://127.0.0.1:30000
+
+#
+#handle_path /$MYPATH/ag {
+#        reverse_proxy /ag 127.0.0.1:30000
+#}
 
 #@websocket_ag {
 #path /$MYPATH/ag
