@@ -62,10 +62,10 @@ reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 #reverse_proxy @websocket_ag http://127.0.0.1:30000
 
 handle_path /$MYPATH/ag/* {
-#        uri strip_preifx /$MYPATH/ag/
+        uri replace / /$MYPATH/ag/
         reverse_proxy 127.0.0.1:30000
 }
-
+ 
 #@websocket_ag {
 #path /$MYPATH/ag
 #}
