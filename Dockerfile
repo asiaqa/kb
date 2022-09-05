@@ -24,16 +24,7 @@ ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-
 ENV FRP_S=0
 
 ENV USER=ezjc
-ENV UID=821
-ENV GID=1001
-RUN adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "$(pwd)" \
-    --ingroup "$USER" \
-    --no-create-home \
-    --uid "$UID" \
-    "$USER"
+RUN addgroup -S $USER && adduser -S $USER -G $USER
 USER $USER
 ADD etc/Caddyfile /etc/caddy/Caddyfile
 ADD etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml
