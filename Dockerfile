@@ -55,7 +55,3 @@ RUN apk update && \
 RUN chmod +x /start.sh
 
 CMD /start.sh
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
