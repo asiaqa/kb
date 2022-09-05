@@ -1,5 +1,5 @@
-#FROM alpine:edge
-FROM node:alpine
+FROM alpine:edge
+#FROM node:alpine
 #ENV USER=ezjc
 ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c"
 #ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip" 
