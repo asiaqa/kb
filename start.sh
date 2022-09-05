@@ -10,7 +10,7 @@ cp /frpc.ini /frp/frpc.ini
 cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/$MYPATH/g" -e "s/\$ParameterSSENCYPT/$ParameterSSENCYPT/g" >/x.json 
 #rm /temp.json
 /x -config /x.json &
-/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /wg/ag.log &
+/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log &
 if [ $FRP_S == 1 ]
 then
 /frp/frpc -c /frp/frpc.ini &
