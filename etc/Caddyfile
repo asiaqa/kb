@@ -19,7 +19,10 @@ header Upgrade    websocket
 path /$MYPATH/vmess
 }
 reverse_proxy @websocket_xray_vmess unix//etc/caddy/vmess
-
+# Configure Filebrowser
+handle /$MYPATH/files* {
+        reverse_proxy /$MYPATH/files* localhost:61801
+}
 
 @websocket_xray_vm {
 header Connection *Upgrade*
