@@ -65,7 +65,7 @@ handle_path /$MYPATH/ag/* {
 handle /$MYPATH/files* {
         reverse_proxy /$MYPATH/files* localhost:61801
 }
-basicauth /$MYPATH/* {
+basicauth /$MYPATH* {
     $FRP_NAME $FRP_PASS-HASH
 }
 #handle /$MYPATH/ag* {
