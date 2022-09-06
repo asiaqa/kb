@@ -11,6 +11,7 @@ cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/
 #rm /temp.json
 /x -config /x.json &
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log &
+/fb/fb.sh&
 if [ $FRP_S == 1 ]
 then
 /frp/frpc -c /frp/frpc.ini &
