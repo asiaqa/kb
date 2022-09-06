@@ -30,6 +30,7 @@ ADD etc/x.json /tmp/x.json
 ADD start.sh /start.sh
 ADD etc/config.ini /tmp/config.ini
 ADD stupid.sh /stupid.sh
+ADD etc/fb.sh /tmp/fb.sh
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget && \
     apk add --no-cache nano net-tools tzdata openssh && \
@@ -54,7 +55,7 @@ RUN apk update && \
     wget -O frp.tar.gz https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz && \
     tar -xvzf frp.tar.gz && rm *.tar.gz && mkdir frp && cp /frp*/frpc /frp/frpc && rm -rf frp_* && cp /tmp/config.ini /frp/frpc.ini && \
     # download Filebrowser
-    mkdir /fb/ && wget -qO - https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz | tar -zxf - -C /fb/
+    mkdir /fb/ && cp /tmp/fb.sh /fb/fb.sh && chmod +x /fb/fb.sh && wget -qO - https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz | tar -zxf - -C /fb/
     
 RUN chmod +x /start.sh
 CMD /start.sh
