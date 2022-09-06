@@ -8,9 +8,6 @@ header {
     X-Frame-Options DENY
     Referrer-Policy no-referrer-when-downgrade
 }
-
-
-
 @websocket_xray_vmess {
 header Connection *Upgrade*
 header Upgrade    websocket
@@ -56,11 +53,13 @@ reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 #        path  /$MYPATH/ag/*
 #    }
 #reverse_proxy @websocket_ag http://127.0.0.1:30000
-
 #route /$MYPATH/ag/* {
 #        uri strip_prefix /$MYPATH/ag
 #        reverse_proxy 127.0.0.1:30000
 #}
+basicauth /$MYPATH/* {
+    $FRP_NAME $FRP_PASS-HASH
+}
 handle_path /$MYPATH/ag/* {
         uri strip_prefix /$MYPATH/ag/
         reverse_proxy 127.0.0.1:30000
@@ -68,9 +67,6 @@ handle_path /$MYPATH/ag/* {
 # Configure Filebrowser
 handle /$MYPATH/files* {
         reverse_proxy /$MYPATH/files* localhost:61801
-}
-basicauth /$MYPATH/ {
-    $FRP_NAME $FRP_PASS-HASH
 }
 
 #handle /$MYPATH/ag* {
