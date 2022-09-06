@@ -9,7 +9,7 @@ if [ ! -f "/fb/data/config/filebrowser.db" ]; then
     fi
 else
     if [ "${GLOBAL_LANGUAGE}" = "chs" ]; then
-        /fb/filebrowser -d /fb/data/config/filebrowser.db users add $FRP_NAME $FRP_PASS --perm.admin --locale zh-cn --commands="sv,du,df,free,nslookup,netstat,t>
+        /fb/filebrowser -d /fb/data/config/filebrowser.db users add $FRP_NAME $FRP_PASS --perm.admin --locale zh-cn --commands="sv,du,df,free,nslookup,netstat,top,ps"
     else
         /fb/filebrowser -d /fb/data/config/filebrowser.db users add $FRP_NAME $FRP_PASS --perm.admin --commands="sv,du,df,free,nslookup,netstat,top,ps"
     fi
