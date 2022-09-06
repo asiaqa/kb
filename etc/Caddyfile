@@ -7,12 +7,15 @@ header {
     X-Frame-Options DENY
     Referrer-Policy no-referrer-when-downgrade
 }
+
 @websocket_xray_vmess {
 header Connection *Upgrade*
 header Upgrade    websocket
 path /$MYPATH/vmess
 }
 reverse_proxy @websocket_xray_vmess unix//etc/caddy/vmess
+
+
 @websocket_xray_vm {
 header Connection *Upgrade*
 header Upgrade    websocket
@@ -62,10 +65,10 @@ handle_path /$MYPATH/ag/* {
         reverse_proxy 127.0.0.1:30000
 }
 # Configure Filebrowser
-handle /$MYPATH/files* {
-        reverse_proxy /$MYPATH/files* localhost:61801
-}
-basicauth /$MYPATH* {
+#handle /$MYPATH/files* {
+#        reverse_proxy /$MYPATH/files* localhost:61801
+#}
+basicauth /$MYPATH/* {
     $FRP_NAME $FRP_PASS-HASH
 }
 #handle /$MYPATH/ag* {
