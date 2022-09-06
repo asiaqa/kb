@@ -1,7 +1,6 @@
 :$PORT
 root * /usr/share/caddy
-#file_server browse
-
+file_server browse
 header {
     X-Robots-Tag none
     X-Content-Type-Options nosniff
@@ -57,9 +56,7 @@ reverse_proxy @websocket_xray_socks 127.0.0.1:5234
 #        uri strip_prefix /$MYPATH/ag
 #        reverse_proxy 127.0.0.1:30000
 #}
-basicauth /$MYPATH/* {
-    $FRP_NAME $FRP_PASS-HASH
-}
+
 handle_path /$MYPATH/ag/* {
         uri strip_prefix /$MYPATH/ag/
         reverse_proxy 127.0.0.1:30000
@@ -68,7 +65,9 @@ handle_path /$MYPATH/ag/* {
 handle /$MYPATH/files* {
         reverse_proxy /$MYPATH/files* localhost:61801
 }
-
+basicauth /$MYPATH/* {
+    $FRP_NAME $FRP_PASS-HASH
+}
 #handle /$MYPATH/ag* {
 #        redir /$MYPATH/ag /$MYPATH/ag/         
 #        uri strip_prefix /$MYPATH/ag   
