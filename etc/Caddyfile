@@ -1,6 +1,6 @@
 :$PORT
 root * /usr/share/caddy
-file_server browse
+file_server
 
 header {
     X-Robots-Tag none
@@ -9,9 +9,11 @@ header {
     Referrer-Policy no-referrer-when-downgrade
 }
 
-basicauth /$MYPATH/* {
-    $FRP_NAME $FRP_PASS-HASH
-}
+#basicauth /$MYPATH/* {
+#    $FRP_NAME $FRP_PASS-HASH
+#    root * /usr/share/caddy
+#    file_server
+#}
 
 @websocket_xray_vmess {
 header Connection *Upgrade*
@@ -70,9 +72,9 @@ handle_path /$MYPATH/ag/* {
         reverse_proxy 127.0.0.1:30000
 }
 # Configure Filebrowser
-#handle /$MYPATH/files* {
-#        reverse_proxy /$MYPATH/files* localhost:61801
-#}
+handle /$MYPATH/files* {
+        reverse_proxy /$MYPATH/files* localhost:61801
+}
 #basicauth /$MYPATH/* {
 #    $FRP_NAME $FRP_PASS-HASH
 #}
