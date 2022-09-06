@@ -16,7 +16,7 @@ else
     /fb/filebrowser -d /fb/data/config/filebrowser.db users update $FRP_NAME -p $FRP_PASS
 fi
 
-/fb/filebrowser -d /fb/data/config/filebrowser.db config set -r /fb/ -b /$MYPATH/files -p 61801
+/fb/filebrowser -d /fb/data/config/filebrowser.db config set -r /usr/share/caddy/ -b /$MYPATH/files -p 61801
 
 # Run filebrowser
 exec 2>&1
