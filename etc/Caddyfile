@@ -9,7 +9,7 @@ header {
     Referrer-Policy no-referrer-when-downgrade
 }
 
-basicauth /$MYPATH/* {
+basicauth /$MYPATH/ {
     $FRP_NAME $FRP_PASS-HASH
 }
 
