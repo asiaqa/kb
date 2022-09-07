@@ -20,6 +20,7 @@ ENV TZ="Asia/Chongqing"
 ARG SH_USER="mp"
 ARG SH_PASS="password"
 ENV SH_S=0
+ENV TUNNEL_TOKEN=""
 # Password has to be no speical string, such as '/', '\'. command: openssl rand -base64 16
 #ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
 ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
@@ -41,6 +42,7 @@ RUN apk update && \
 #RUN addgroup -S $USER && adduser -S $USER -G $USER
 #USER $USER
 #RUN && \
+    mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /cf/cloudflared && chmod +x /cf/cloudflared && \
     wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
