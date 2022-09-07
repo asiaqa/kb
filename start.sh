@@ -14,11 +14,15 @@ cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/
 /fb/fb.sh&
 if [ $FRP_S == 1 ]
 then
-/frp/frpc -c /frp/frpc.ini &
+  /frp/frpc -c /frp/frpc.ini &
 fi
 if [ $SH_S == 1 ]
 then
-exec /usr/sbin/sshd -D -e "$@"&
-echo mp:$MYPATH | chpasswd&
+  exec /usr/sbin/sshd -D -e "$@"&
+  echo mp:$MYPATH | chpasswd&
+fi
+if [[ $TUNNEL_TOKEN ]]
+then
+  /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
