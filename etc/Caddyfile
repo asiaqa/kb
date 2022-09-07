@@ -11,8 +11,6 @@ header {
 
 basicauth /my/$MYPATH/* {
     $FRP_NAME $FRP_PASS-HASH
-    root * /usr/share/caddy
-    file_server
 }
 
 @websocket_xray_vmess {
