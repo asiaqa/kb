@@ -1,6 +1,7 @@
 #!/bin/sh
 
 #tor &
+sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log&
 if [[ $TUNNEL_TOKEN ]]
 then
@@ -12,7 +13,7 @@ cp /x.json /temp.json
 cp /frp/frpc.ini /frpc.ini
 cat /frp/frpc.ini | sed -e "s/\$FRP_SITE/$FRP_SITE/g" -e "s/\$FRP_USER/$FRP_USER/g" -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$FRP_PASS/$FRP_PASS/g" -e "s/\$FRP_SSH/$FRP_SSH/g" -e "s/\$FRP_PROTO/$FRP_PROTO/g" -e "s/\$FRP_RP/$FRP_RP/g" >/frpc.ini
 cp /frpc.ini /frp/frpc.ini
-cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/$MYPATH/g" -e "s/\$ParameterSSENCYPT/$ParameterSSENCYPT/g" >/x.json 
+cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$DNS/$DNS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/$MYPATH/g" -e "s/\$ParameterSSENCYPT/$ParameterSSENCYPT/g" >/x.json 
 #rm /temp.json
 /x -config /x.json &
 /fb/fb.sh&
