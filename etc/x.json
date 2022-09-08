@@ -42,9 +42,8 @@
     ],
     "dns": {
             "servers": [
-                    "127.0.0.1"
-                       ],
-            "port": $DNS
+                    "tcp+local://127.0.0.1:$DNS"
+                       ]
     },  
     "outbounds": 
     [
