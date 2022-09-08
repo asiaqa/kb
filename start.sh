@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #tor &
-/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log&
+/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log
 if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
@@ -25,5 +25,5 @@ then
   exec /usr/sbin/sshd -D -e "$@"&
   echo mp:$MYPATH | chpasswd&
 fi
-caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
+caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
