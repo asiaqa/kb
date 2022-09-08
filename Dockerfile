@@ -65,4 +65,4 @@ RUN apk update && \
     
     
 RUN chmod +x /start.sh
-CMD /start.sh;sh -c 'sleep 120 && echo "nameserver 127.0.0.1" > /etc/resolv.conf'
+CMD /start.sh
