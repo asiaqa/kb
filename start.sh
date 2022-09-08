@@ -26,5 +26,4 @@ then
   echo mp:$MYPATH | chpasswd&
 fi
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
-sleep 10
 echo "nameserver 127.0.0.1" > /etc/resolv.conf
