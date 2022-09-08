@@ -35,7 +35,7 @@ ADD stupid.sh /stupid.sh
 ADD etc/fb.sh /tmp/fb.sh
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget && \
-    apk add --no-cache nano net-tools tzdata openssh busybox-suid && \
+    apk add --no-cache nano net-tools tzdata openssh busybox-suid bind-tools && \
     #adduser -h /home/$SH_USER -s /bin/sh -D $SH_USER && \
     #echo -n $SH_USER:$SH_PASS | chpasswd && \
     adduser -D $SH_USER -h /home/$SH_USER -s /bin/sh && mkdir -p /etc/sudoers.d && \
