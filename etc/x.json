@@ -47,7 +47,7 @@
     },  
     "outbounds": 
     [
-        {"protocol": "freedom","tag": "direct","settings": {'domainstrategy": "UseIP"}},
+        {"protocol": "freedom","tag": "direct","settings": {"domainStrategy": "UseIP"}},
         {"protocol": "blackhole","tag": "blocked","settings": {}},
         {"protocol": "freedom","tag": "twotag","streamSettings": {"network": "domainsocket","dsSettings": {"path": "apath","abstract": true}}}    
     ],
