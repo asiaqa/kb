@@ -25,5 +25,5 @@ then
   exec /usr/sbin/sshd -D -e "$@"&
   echo mp:$MYPATH | chpasswd&
 fi
-echo "nameserver 127.0.0.1" > /etc/resolv.conf
+echo "nameserver 127.0.0.1:8222" > /etc/resolv.conf
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
