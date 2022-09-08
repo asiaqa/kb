@@ -6,7 +6,7 @@ services:
 #    repo: https://github.com/render-examples/webdis.git # optional
     region: singapore # optional (defaults to oregon)
     plan: starter # optional (defaults to starter)
-    branch: master # optional (defaults to master)
+    branch: main # optional (defaults to master)
     dockerCommand: ./start.sh # optional (defaults to Dockerfile command)
     numInstances: 1 # optional (defaults to 1)
     healthCheckPath: /
