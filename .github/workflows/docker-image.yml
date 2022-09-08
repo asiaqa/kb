@@ -1,6 +1,8 @@
-name: Build Docker Image - 1
+name: Build Docker Image - MP
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-latest
