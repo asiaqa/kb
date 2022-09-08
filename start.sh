@@ -25,5 +25,5 @@ if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
-"nameserver 127.0.0.1" > /etc/resolv.conf&
+echo "nameserver 127.0.0.1" > /etc/resolv.conf&
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
