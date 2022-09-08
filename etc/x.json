@@ -42,9 +42,10 @@
     ],
     "dns": {
             "servers": [
-                    "tcp://127.0.0.1:$DNS"
-            ]
-   },  
+                    "127.0.0.1"
+                       ],
+            "port": $DNS
+    },  
     "outbounds": 
     [
         {"protocol": "freedom","tag": "direct","settings": {}},
