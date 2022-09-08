@@ -31,12 +31,16 @@ dns:
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
+    - tcp://dns.google
+    - tcp://94.140.14.140
     - 8.8.8.8
     - 8.8.4.4
     - 1.1.1.1
   upstream_dns_file: ""
   bootstrap_dns:
     - 1.1.1.1
+    - tcp://dns.google
+    - tcp://94.140.14.140
   all_servers: true
   fastest_addr: false
   fastest_timeout: 1s
