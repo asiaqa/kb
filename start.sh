@@ -26,4 +26,5 @@ then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
-sleep 2m && echo "nameserver 127.0.0.1" > /etc/resolv.conf
+sleep 2m
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
