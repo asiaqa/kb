@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Building Docker Image - external
+      - name: Building Docker Image - PUBLIC
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           # 下方的name格式为：Docker Hub ID/自定义镜像名称
