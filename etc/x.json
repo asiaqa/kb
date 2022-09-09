@@ -45,14 +45,14 @@
           "serviceName": "$MYPATH",
           "initial_windows_size": 524288
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
+//      "sniffing": {
+//        "enabled": true,
+//        "destOverride": [
+//          "http",
+//          "tls"
+//        ]
+//      }
     },     
        
         {
