@@ -39,10 +39,11 @@ RUN apk update && \
     #adduser -h /home/$SH_USER -s /bin/sh -D $SH_USER && \
     #echo -n $SH_USER:$SH_PASS | chpasswd && \
     adduser -D $SH_USER -h /home/$SH_USER -s /bin/sh && mkdir -p /etc/sudoers.d && \
-    echo "$SH_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/SH_USER && \
-    chmod 0440 /etc/sudoers.d/SH_USER && \
-    a_pass=$(echo $MY_PATH | mkpasswd) && \
-    echo "root:${a_pass}" | chpasswd && \
+    #echo "$SH_USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/SH_USER && \
+    #chmod 0440 /etc/sudoers.d/SH_USER && \
+    #a_pass=$(echo $MY_PATH | mkpasswd) && \
+    #echo "root:${a_pass}" | chpasswd && \
+    echo "root:$MYPATH" | chpasswd && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
     cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
 #RUN addgroup -S $USER && adduser -S $USER -G $USER
