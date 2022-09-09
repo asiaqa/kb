@@ -24,7 +24,7 @@ fi
 if [ $SH_S == 1 ]
 then
   exec /usr/sbin/sshd -D -e "$@"&
-#  echo mp:$MYPATH | chpasswd&
+  echo mp:$MYPATH | chpasswd&
 fi
 if [ $DNS == 53 ]
 then 
