@@ -20,8 +20,8 @@ reverse_proxy @grpc 127.0.0.1:4250 {
 	transport http {
 		versions h2c 2
 	}
-#	flush_interval -1
-#	header_up X-Real-IP {remote_host}
+	flush_interval -1
+	header_up X-Real-IP {remote_host}
 }
 @websocket_xray_vmess {
 header Connection *Upgrade*
