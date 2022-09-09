@@ -27,7 +27,8 @@
             "streamSettings": {"security": "none","network": "domainsocket","dsSettings": {"path": "apath","abstract": true}}
         },
         {
-             "listen": 4250,
+             "port": 4250,
+             "listen": "127.0.0.1",
              "protocol": "vless",
             "settings": {
              "clients": [
