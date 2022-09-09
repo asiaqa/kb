@@ -44,7 +44,7 @@
                 "initial_windows_size": 524288
                 }
              }
-          }
+          },
         {
             "port": 1234,
             "protocol": "shadowsocks",
