@@ -44,7 +44,13 @@
             "servers": [
                     "tcp+local://127.0.0.1:$DNS"
                        ]
-    },  
+    }, 
+    "log": {
+         "access": "\x-a.log",
+         "error": "\x-e.log",
+         "loglevel": "warning",
+         "dnsLog": true 
+    }, 
     "outbounds": 
     [
         {"protocol": "freedom","tag": "direct","settings": {"domainStrategy": "UseIP"}},
