@@ -12,6 +12,11 @@ header {
 basicauth /my/$MYPATH/* {
     $FRP_NAME $FRP_PASS-HASH
 }
+@grpc {
+        protocol grpc
+        path $MYPATH
+    }
+reverse_proxy @grpc unix:/etc/caddy/gRPC
 
 @websocket_xray_vmess {
 header Connection *Upgrade*
