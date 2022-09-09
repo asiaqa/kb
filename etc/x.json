@@ -42,7 +42,8 @@
     ],
     "dns": {
             "servers": [
-                    "tcp+local://127.0.0.1:$DNS"
+                    "tcp+local://127.0.0.1:$DNS",
+                    "127.0.0.1:$DNS
                        ]
     }, 
     "log": {
