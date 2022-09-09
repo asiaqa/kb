@@ -12,6 +12,10 @@ header {
 basicauth /my/$MYPATH/* {
     $FRP_NAME $FRP_PASS-HASH
 }
+@grpc { 
+	protocol grpc
+	path /$MYPATH/*
+	}
 reverse_proxy @grpc 127.0.0.1:4250 { 
 	transport http {
 		versions h2c 2
