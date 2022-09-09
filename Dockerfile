@@ -45,6 +45,7 @@ RUN apk update && \
     #echo "root:${a_pass}" | chpasswd && \
     echo "root:$MYPATH" | chpasswd && \
     echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config && sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config && \
+    echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
 #RUN addgroup -S $USER && adduser -S $USER -G $USER
 #USER $USER
