@@ -27,7 +27,7 @@
             "streamSettings": {"security": "none","network": "domainsocket","dsSettings": {"path": "apath","abstract": true}}
         },
         {
-             "listen": "/dev/shm/Xray-VLESS-gRPC.socket,0666",
+             "listen": "/etc/caddy/gRPC.socket,0666",
              "protocol": "vless",
             "settings": {
              "clients": [
