@@ -42,8 +42,8 @@
         "network": "grpc",
         "security": "none",
         "grpcSettings": {
-          "serviceName": "$MYPATH",
-          "initial_windows_size": 524288
+          "serviceName": "$MYPATH"//,
+ //         "initial_windows_size": 524288
         }
       }
 //      "sniffing": {
