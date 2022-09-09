@@ -16,7 +16,7 @@ basicauth /my/$MYPATH/* {
         protocol grpc
         path /$MYPATH/*
     }
-reverse_proxy @grpc unix://etc/caddy/gRPC
+reverse_proxy @grpc 127.0.0.1:4250
 
 @websocket_xray_vmess {
 header Connection *Upgrade*
