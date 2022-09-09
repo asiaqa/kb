@@ -26,26 +26,35 @@
             "settings": {"method": "$ParameterSSENCYPT","password": "$AUUID"},
             "streamSettings": {"security": "none","network": "domainsocket","dsSettings": {"path": "apath","abstract": true}}
         },
-        {
-             "port": 4250,
-             "listen": "127.0.0.1",
-             "protocol": "vless",
-            "settings": {
-             "clients": [
-                      {
-                       "id": "$AUUID" // 填写你的 UUID
-                        }
-                      ],
-              "decryption": "none"
-                     },
-            "streamSettings": {
-            "network": "grpc",
-            "grpcSettings": {
-                "serviceName": "$MYPATH",// 填写你的 ServiceName
-                "initial_windows_size": 524288
-                }
-             }
-          },
+            {
+      "listen": "127.0.0.1", //只监听本机，避免本机外的机器探测到下面端口。
+      "port": 4250, //vless+grpc监听端口
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "058e0bf3-dd56-11e9-aa37-5600024c1d6a" 
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "none",
+        "grpcSettings": {
+          "serviceName": "$MYPATH",
+          "initial_windows_size": 524288
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    },     
+       
         {
             "port": 1234,
             "protocol": "shadowsocks",
