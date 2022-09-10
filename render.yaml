@@ -11,6 +11,10 @@ services:
     numInstances: 1 # optional (defaults to 1)
     healthCheckPath: /
     envVars:
-      - key: REDIS_HOST
+      - key: PORT
         sync: false 
+      - key: MYPATH
+        sync: false 
+      - key: PASS
+        sync: false
      
