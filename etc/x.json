@@ -79,7 +79,7 @@
       //   "access": '/x-a.log',
       //   "error": '/x-e.log',
          "loglevel": "warning",
-         "dnsLog": true 
+         "dnsLog": false // true
     }, 
     "outbounds": 
     [
