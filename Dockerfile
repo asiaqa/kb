@@ -26,14 +26,14 @@ ENV TUNNEL_TOKEN=""
 #ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
 ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
 ENV FRP_S=0
-COPY etc/Caddyfile /etc/caddy/Caddyfile \
- etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
- etc/x.json /tmp/x.json \
- start.sh /start.sh \
- start1.sh /start1.sh \
- etc/config.ini /tmp/config.ini \
- stupid.sh /stupid.sh \
- etc/fb.sh /tmp/fb.sh
+COPY etc/Caddyfile /etc/caddy/Caddyfile
+COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml 
+COPY etc/x.json /tmp/x.json 
+COPY start.sh /start.sh
+COPY start1.sh /start1.sh 
+COPY etc/config.ini /tmp/config.ini 
+COPY stupid.sh /stupid.sh 
+COPY etc/fb.sh /tmp/fb.sh
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget su-exec ttyd tzdata && \
     apk add --no-cache nano net-tools openssh busybox-suid bind-tools && \
