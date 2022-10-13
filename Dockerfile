@@ -23,8 +23,8 @@ ARG SH_PASS="password"
 ENV SH_S=0
 ENV TUNNEL_TOKEN=""
 # Password has to be no speical string, such as '/', '\'. command: openssl rand -base64 16
-#ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
-ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
+ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
+#ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
 ENV FRP_S=0
 COPY etc/Caddyfile /etc/caddy/Caddyfile
 COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml 
