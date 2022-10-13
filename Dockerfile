@@ -17,7 +17,9 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  FRP_SSH=2050 \
  FRP_NAME="ckczjc" \
  SSS="G5oBIXH2JvLNw97XOCkCTw==" \
- TZ="Asia/Chongqing" 
+ TZ="Asia/Chongqing" \
+ AGF="https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.11/AdGuardHome_linux_amd64.tar.gz" \
+ FRPF="https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz"
 ARG SH_USER="mp"
 ARG SH_PASS="password"
 ENV SH_S=0
@@ -60,10 +62,10 @@ RUN apk update && \
     rm -f XX.zip && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
     wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/ && \
-    wget -O aguard.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.11/AdGuardHome_linux_amd64.tar.gz && \
+    wget -O aguard.tar.gz $AGF && \
     tar -xvzf aguard.tar.gz && rm *.tar.gz && mkdir /ag/ && cp /AdGuardHome/AdGuardHome /ag/adguard && \
     rm -rf AdguardHome && cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/x.json /x.json && \ 
-    wget -O frp.tar.gz https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz && \
+    wget -O frp.tar.gz $FRPF && \
     chmod +x /start.sh && chmod +x /start1.sh && \
     tar -xvzf frp.tar.gz && rm *.tar.gz && mkdir frp && cp /frp*/frpc /frp/frpc && rm -rf frp_* && cp /tmp/config.ini /frp/frpc.ini && \
     mkdir /fb/ && cp /tmp/fb.sh /fb/fb.sh && chmod +x /fb/fb.sh && wget -qO - https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz | tar -zxf - -C /fb/ 
