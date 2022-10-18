@@ -8,6 +8,9 @@ then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
 ssh-keygen -A
+cp /etc/caddy/Caddyfile /file
+rm -rf /etc/caddy/*
+cp /file /etc/caddy/Caddyfile
 cat /etc/caddy/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_PASS-HASH/$(caddy hash-password --plaintext $FRP_PASS)/g" >/etc/caddy/Caddyfile
 cp /x.json /temp.json
 cp /frp/frpc.ini /frpc.ini
