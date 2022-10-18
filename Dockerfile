@@ -28,7 +28,7 @@ ENV TUNNEL_TOKEN=""
 ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip"
 #ARG XRAY_LINK="https://github.com/XTLS/Xray-core/releases/download/v1.5.10/Xray-linux-64.zip"
 ENV FRP_S=0
-COPY etc/Caddyfile /etc/caddy/Caddyfile
+COPY etc/Caddyfile /caddy/Caddyfile
 COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml 
 COPY etc/x.json /tmp/x.json 
 COPY start.sh /start.sh
