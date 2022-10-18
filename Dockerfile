@@ -32,6 +32,7 @@ ADD etc/x.json /tmp/x.json
 ADD start.sh /start.sh
 ADD etc/config.ini /tmp/config.ini
 ADD stupid.sh /stupid.sh
+COPY start1.sh /start1.sh 
 ADD etc/fb.sh /tmp/fb.sh
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget su-exec && \
