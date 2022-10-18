@@ -7,13 +7,8 @@ if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
-echo "stop1"
-ls /etc/caddy/
 rm -rf /etc/caddy/*
-cat /caddy/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_PASS-HASH/$(caddy hash-password --plaintext $FRP_PASS)/g" >/caddy/Caddyfile
-echo "stop2"
-ls /etc/caddy/
-cp /caddy/Caddyfile /etc/caddy/Caddyfile
+cat /caddy/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_PASS-HASH/$(caddy hash-password --plaintext $FRP_PASS)/g" >/etc/caddy/Caddyfile
 echo "stop3"
 ls /etc/caddy/
 echo "stop4"
