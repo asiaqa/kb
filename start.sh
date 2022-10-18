@@ -7,8 +7,9 @@ if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
 fi
+rm -rf /etc/caddy/*
 ssh-keygen -A
-cat /etc/caddy/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_PASS-HASH/$(caddy hash-password --plaintext $FRP_PASS)/g" >/etc/caddy/Caddyfile
+cat /etc/Caddyfile | sed -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$FRP_PASS-HASH/$(caddy hash-password --plaintext $FRP_PASS)/g" >/etc/Caddyfile
 cp /x.json /temp.json
 cp /frp/frpc.ini /frpc.ini
 cat /frp/frpc.ini | sed -e "s/\$FRP_SITE/$FRP_SITE/g" -e "s/\$FRP_USER/$FRP_USER/g" -e "s/\$FRP_NAME/$FRP_NAME/g" -e "s/\$FRP_PASS/$FRP_PASS/g" -e "s/\$FRP_SSH/$FRP_SSH/g" -e "s/\$FRP_PROTO/$FRP_PROTO/g" -e "s/\$FRP_RP/$FRP_RP/g" >/frpc.ini
@@ -31,4 +32,4 @@ if [ $DNS == 53 ]
 then 
   echo "nameserver 127.0.0.1" > /etc/resolv.conf
 fi
-caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+caddy run --config /etc/Caddyfile --adapter caddyfile
