@@ -18,7 +18,7 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  FRP_NAME="ckczjc" \
  SSS="G5oBIXH2JvLNw97XOCkCTw==" \
  TZ="Asia/Chongqing" \
- AGF="https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.11/AdGuardHome_linux_amd64.tar.gz" \
+ AGF="https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_amd64.tar.gz" \
  FRPF="https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz" \
  SH_S=0 \
  SH_PASS="password" \
