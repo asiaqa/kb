@@ -3,7 +3,7 @@
 # Configure filebrowser
 if [ ! -f "/fb/data/config/filebrowser.db" ]; then
     /fb/filebrowser -d /fb/data/config/filebrowser.db config init
-    /fb/filebrowser -d /fb/data/config/filebrowser.db users add $FRP_NAME $FRP_PASS --perm.admin --commands="sv,du,df,free,nslookup,netstat,top,ps,ifconfig,dig,ping,ssh,chmod"
+    /fb/filebrowser -d /fb/data/config/filebrowser.db users add $FRP_NAME $FRP_PASS --perm.admin --commands="sv,du,df,free,nslookup,netstat,top,ps,ifconfig,dig,ping,ssh,chmod,cd,ls"
     if [ "${GLOBAL_LANGUAGE}" = "chs" ]; then
         /fb/filebrowser -d /fb/data/config/filebrowser.db users update $FRP_NAME --locale zh-cn
     fi
