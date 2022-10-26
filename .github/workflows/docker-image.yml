@@ -3,6 +3,9 @@ on:
   workflow_dispatch: 
   watch:
     types: [started]
+  schedule: 
+    # nightly
+    - cron: '21 0 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
