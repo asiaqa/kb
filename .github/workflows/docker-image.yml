@@ -34,10 +34,10 @@ jobs:
     steps:
       - name: commit and copy
         run: |
-        sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
-        git config --global user.email "asiaqa@duck.com"
-        git config --global user.name "MP"
-        git add .
+          sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+          echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
+          git config --global user.email "asiaqa@duck.com"
+          git config --global user.name "MP"
+          git add .
         git commit -am "new config"
         git push
