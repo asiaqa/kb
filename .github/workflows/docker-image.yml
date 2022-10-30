@@ -26,18 +26,18 @@ jobs:
           name: '${{ secrets.DOCKER_PATH_TEST }}'
           username: '${{ secrets.DOCKER_USERNAME }}'
           password: '${{ secrets.DOCKER_PASSWORD }}'
-      - name: Record and Commit
-        uses: actions/checkout@v2
-  run-it:
-    runs-on: ubuntu-latest
-    name: zip
-    steps:
-      - name: commit and copy
-        run: |
-          sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-          echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
-          git config --global user.email '${{ secrets.EMAIL }}'
-          git config --global user.name '${{ secrets.USERNAME }}'
-          git add .
-          git commit -am "new config"
-          git push
+ #     - name: Record and Commit
+ #       uses: actions/checkout@v2
+ # run-it:
+ #   runs-on: ubuntu-latest
+ #   name: commit
+ #   steps:
+ #     - name: commit and copy
+ #       run: |
+ #         sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ #         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
+ #         git config --global user.email '${{ secrets.EMAIL }}'
+ #         git config --global user.name '${{ secrets.USERNAME }}'
+ #         git add .
+ #         git commit -am "new config"
+ #         git push
