@@ -28,8 +28,12 @@ jobs:
           password: '${{ secrets.DOCKER_PASSWORD }}'
       - name: Record and Commit
         uses: actions/checkout@v2
+  run-it:
+    runs-on: ubuntu-latest
+    name: zip
+    steps:
+      - name: commit and copy
         run: |
-     # 更改时区
         sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
         git config --global user.email "asiaqa@duck.com"
