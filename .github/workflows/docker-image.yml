@@ -36,8 +36,8 @@ jobs:
         run: |
           sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
           echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
-          git config --global user.email "${{ secrets.EMAIL }}"
-          git config --global user.name "${{ secrets.USERNAME }}"
+          git config --global user.email '${{ secrets.EMAIL }}'
+          git config --global user.name '${{ secrets.USERNAME }}'
           git add .
           git commit -am "new config"
           git push
