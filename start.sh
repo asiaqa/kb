@@ -19,6 +19,7 @@ cp /frpc.ini /frp/frpc.ini
 cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$DNS/$DNS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/$MYPATH/g" -e "s/\$ParameterSSENCYPT/$ParameterSSENCYPT/g" >/x.json 
 #rm /temp.json
 /x -config /x.json &
+/usr/sbin/crond -f -l 8 &
 /fb/fb.sh&
 if [ $FRP_S == 1 ]
 then
