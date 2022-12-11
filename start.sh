@@ -35,5 +35,7 @@ then
   echo "nameserver 127.0.0.1" > /etc/resolv.conf
 fi
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
-/usr/sbin/crond -f -l 8&
-/usr/bin/crontab 21 8 * * * /download.sh
+#/usr/sbin/crond -f -l 8&
+#/usr/bin/crontab 21 8 * * * /download.sh
+echo "21 8 * * * /download.sh" >> /etc/crontabs/root&
+/usr/bin/crond -l 2 -f > /dev/stdout 2> /dev/stderr 
