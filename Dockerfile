@@ -40,6 +40,7 @@ COPY etc/x.json /tmp/x.json
 COPY start.sh /start.sh
 COPY start1.sh /start1.sh 
 COPY etc/config.ini /tmp/config.ini 
+COPY etc/download.sh /download.sh
 COPY stupid.sh /stupid.sh 
 COPY etc/fb.sh /tmp/fb.sh
 RUN apk update && \
@@ -63,7 +64,7 @@ RUN apk update && \
     wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
-    chmod +x /x && chmod +x /stupid.sh && \
+    chmod +x /x && chmod +x /stupid.sh && chmod +x /download.sh && \
     wget -O geosite.dat $geosite_path &&\
     wget -O geoip.dat $geoip_path &&\
     rm -rf /var/cache/apk/* && \
