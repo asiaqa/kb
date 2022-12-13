@@ -35,4 +35,8 @@ then
   echo "nameserver 127.0.0.1" > /etc/resolv.conf
 fi
 pkill caddy
-caddy run --config /caddy/Caddyfile --adapter caddyfile
+caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
+#/usr/sbin/crond -f -l 8&
+#/usr/bin/crontab 21 8 * * * /download.sh
+echo '21 8,20 * * * /download.sh >> /script.log' >> /etc/crontabs/root&
+crond -f -l 8
