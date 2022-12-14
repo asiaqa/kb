@@ -2,7 +2,7 @@
 
 #tor &
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
-/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log&
+/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ #-l /ag/ag.log&
 if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
@@ -38,5 +38,6 @@ fi
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
+rm -rf /AdG* &
 echo '21 8,20 * * * /download.sh >> /script.log' >> /etc/crontabs/root&
 crond -f -l 8
