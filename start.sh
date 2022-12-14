@@ -2,7 +2,7 @@
 
 #tor &
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
-/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ #-l /ag/ag.log&
+/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ & #-l /ag/ag.log&
 if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
