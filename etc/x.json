@@ -73,7 +73,10 @@
             "servers": [
                     "tcp+local://127.0.0.1:$DNS",
                     "udp://127.0.0.1:$DNS"
-                       ]
+                       ],
+             "hosts": {
+                "geosite:category-ads-all": "0.0.0.0"
+               }
     }, 
     "log": {
       //   "access": '/x-a.log',
