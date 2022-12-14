@@ -141,7 +141,6 @@ user_rules:
   - '||payment.synology.com^$important'
   - '||globe-pus.foxitservice.com^$important'
   - '||globe-request.foxitservice.com^$important'
-  - '@@||eduhk.au1.qualtrics.com^'
 dhcp:
   enabled: false
   interface_name: ""
