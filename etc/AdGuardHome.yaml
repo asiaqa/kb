@@ -141,6 +141,7 @@ user_rules:
   - '||payment.synology.com^$important'
   - '||globe-pus.foxitservice.com^$important'
   - '||globe-request.foxitservice.com^$important'
+  - '||amazonaax.com^'
 dhcp:
   enabled: false
   interface_name: ""
