@@ -75,7 +75,7 @@ RUN apk update && \
     tar -xvzf aguard.tar.gz && rm *.tar.gz && mkdir /ag/ && cp /AdGuardHome/AdGuardHome /ag/adguard && \
     rm -rf AdguardHome && cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/x.json /x.json && \ 
     wget -O frp.tar.gz $FRPF && \
-    chmod +x /start.sh && chmod +x /start1.sh && rm -rf /AdG* && \
+    chmod +x /start.sh && chmod +x /start1.sh && \
     tar -xvzf frp.tar.gz && rm *.tar.gz && mkdir frp && cp /frp*/frpc /frp/frpc && rm -rf frp_* && cp /tmp/config.ini /frp/frpc.ini && \
     mkdir /fb/ && cp /tmp/fb.sh /fb/fb.sh && chmod +x /fb/fb.sh && wget -qO - https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz | tar -zxf - -C /fb/ 
     # echo '@reboot sleep 120 && echo "nameserver 127.0.0.1" > /etc/resolv.conf' >> /etc/crontabs/root 
