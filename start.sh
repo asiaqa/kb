@@ -39,4 +39,5 @@ caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
 echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
+rm -rf /AdG* &
 crond -f -l 8
