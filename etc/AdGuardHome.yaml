@@ -143,6 +143,8 @@ user_rules:
   - '||globe-request.foxitservice.com^$important'
   - '||amazonaax.com^'
   - '||sentry-cdn.com^'
+  - '||advice-ads.s3.amazonaws.com^'
+  - '||analyticsengine.s3.amazonaws.com^'
 dhcp:
   enabled: false
   interface_name: ""
