@@ -65,8 +65,8 @@
             }
         },   
         {   "port": 5234,"listen": "127.0.0.1","protocol": "socks",
-            "settings": {"auth": "password","accounts": [{"user": "$AUUID","pass": "$AUUID"}]},
-            "streamSettings": {"network": "ws","wsSettings": {"path": "/$AUUID-socks"}}
+            "settings": {"auth": "password","accounts": [{"user": "$MYPATH","pass": "$AUUID"}]},
+            "streamSettings": {"network": "ws","wsSettings": {"path": "$MYPATH/socks"}}
         }
     ],
     "dns": {
