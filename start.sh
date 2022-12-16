@@ -1,7 +1,16 @@
 #!/bin/sh
 
 #tor &
+if [ $geo_download == 1 ]
+then
+  sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml 
+  /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ & #-l /ag/ag.log&
+else
+  sed -i "s/\$DNS/$DNS/g" /ag/ag_basic.yaml
+  /ag/adguard -c /ag/ag_basic.yaml -w /ag/ & #-l /ag/ag.log&
+fi
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
+sed -i "s/\$DNS/$DNS/g" /ag/ag_basic.yaml
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ & #-l /ag/ag.log&
 if [[ $TUNNEL_TOKEN ]]
 then
