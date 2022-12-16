@@ -35,13 +35,13 @@ if [ $DNS == 53 ]
 then 
   echo "nameserver 127.0.0.1" > /etc/resolv.conf
 fi
-caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
 if [ $geo_download == 1 ]
 then
-  /download.sh&
+  /download.sh
   echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
+  crond -f -l 8 &
 fi
 rm -rf /AdG* &
-crond -f -l 8
+caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
