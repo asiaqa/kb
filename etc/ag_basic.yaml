@@ -133,7 +133,7 @@ filters:
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_21.txt
     name: 'CHN: anti-AD'
     id: 1671101344
-  - enabled: true
+  - enabled: false
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
     name: 'CHN: AdRules DNS List'
     id: 1671101345
