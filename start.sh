@@ -45,7 +45,8 @@ then
 fi
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
-if [ $geo_download == 1 ]
+#if [ $geo_download == 1 ]
+if [ $geo_download ]
 then
   /download.sh
   echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
