@@ -43,5 +43,5 @@ then
   echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
   crond -f -l 8 &
 fi
-rm -rf /AdG* &
+rm -rf /AdG* 
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
