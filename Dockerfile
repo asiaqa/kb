@@ -36,7 +36,8 @@ ARG SH_USER="mp" \
 #ENV FRP_S=0
 COPY etc/Caddyfile /caddy/Caddyfile
 COPY etc/Caddyfile /etc/caddy/Caddyfile
-COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml 
+COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml
+COPY etc/ag_basic.yaml /tmp/ag_basic.yaml
 COPY etc/x.json /tmp/x.json 
 COPY start.sh /start.sh
 COPY start1.sh /start1.sh 
@@ -74,7 +75,7 @@ RUN apk update && \
     wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/ && \
     wget -O aguard.tar.gz $AGF && \
     tar -xvzf aguard.tar.gz && rm *.tar.gz && mkdir /ag/ && cp /AdGuardHome/AdGuardHome /ag/adguard && \
-    rm -rf AdguardHome && cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/x.json /x.json && \ 
+    rm -rf AdguardHome && cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/ag_basic.yam /ag/ && cp /tmp/x.json /x.json && \ 
     wget -O frp.tar.gz $FRPF && \
     chmod +x /start.sh && chmod +x /start1.sh && \
     tar -xvzf frp.tar.gz && rm *.tar.gz && mkdir frp && cp /frp*/frpc /frp/frpc && rm -rf frp_* && cp /tmp/config.ini /frp/frpc.ini && \
