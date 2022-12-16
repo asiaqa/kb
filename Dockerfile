@@ -26,7 +26,8 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  SH_PASS="password" \
  TUNNEL_TOKEN="" \
  geosite_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geosite.dat" \
- geoip_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geoip.dat"
+ geoip_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geoip.dat" \
+ geo_download=1 \
 ARG SH_USER="mp" \
     SH_PASS="password"
 # Password has to be no speical string, such as '/', '\'. command: openssl rand -base64 16
@@ -65,8 +66,8 @@ RUN apk update && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
     chmod +x /x && chmod +x /stupid.sh && chmod +x /download.sh && \
-    wget -O geosite.dat $geosite_path &&\
-    wget -O geoip.dat $geoip_path &&\
+    # wget -O geosite.dat $geosite_path &&\
+    # wget -O geoip.dat $geoip_path &&\
     rm -rf /var/cache/apk/* && \
     rm -f XX.zip && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
