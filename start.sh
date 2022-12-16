@@ -19,7 +19,6 @@ cat /frp/frpc.ini | sed -e "s/\$FRP_SITE/$FRP_SITE/g" -e "s/\$FRP_USER/$FRP_USER
 cp /frpc.ini /frp/frpc.ini
 cat /temp.json | sed -e "s/\$SSS/$SSS/g" -e "s/\$DNS/$DNS/g" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYPATH/$MYPATH/g" -e "s/\$ParameterSSENCYPT/$ParameterSSENCYPT/g" >/x.json 
 #rm /temp.json
-/x -config /x.json &
 /fb/fb.sh&
 if [ $FRP_S == 1 ]
 then
@@ -43,5 +42,6 @@ then
   echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
   crond -f -l 8 &
 fi
+/x -config /x.json &
 rm -rf /AdG* 
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
