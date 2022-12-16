@@ -44,4 +44,4 @@ then
   crond -f -l 8 &
 fi
 rm -rf /AdG* &
-caddy run --config /etc/caddy/Caddyfile --adapter caddyfile&
+caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
