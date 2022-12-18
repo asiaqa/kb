@@ -2,7 +2,7 @@
 
 #tor &
 if [ $geo_download == 1 ]
-then$
+then
   $ag_file_name=ag_basic.yaml
 fi
 sed -i "s/\$DNS/$DNS/g" /ag/$ag_file_name
