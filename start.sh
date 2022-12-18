@@ -3,7 +3,7 @@
 #tor &
 if [ $geo_download == 1 ]
 then
-  $ag_file_name=ag_basic.yaml
+  ag_file_name=ag_basic.yaml
 fi
 sed -i "s/\$DNS/$DNS/g" /ag/$ag_file_name
 /ag/adguard -c /ag/$ag_file_name -w /ag/ & #-l /ag/ag.log&
@@ -43,7 +43,7 @@ fi
 #if [ $geo_download == 1 ]
 if [ $geo_download == 1 ]
 then
-  $geosite_path="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat"&
+  geosite_path="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat"&
 fi
 /download.sh
 echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
