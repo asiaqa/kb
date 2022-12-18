@@ -2,16 +2,11 @@
 
 #tor &
 if [ $geo_download == 1 ]
-then
-  sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml 
-  /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ & #-l /ag/ag.log&
-else
-  sed -i "s/\$DNS/$DNS/g" /ag/ag_basic.yaml
-  /ag/adguard -c /ag/ag_basic.yaml -w /ag/ & #-l /ag/ag.log&
+then$
+  $ag_file_name=ag_basic.yaml
 fi
-sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
-sed -i "s/\$DNS/$DNS/g" /ag/ag_basic.yaml
-/ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ & #-l /ag/ag.log&
+sed -i "s/\$DNS/$DNS/g" /ag/$ag_file_name
+/ag/adguard -c /ag/$ag_file_name -w /ag/ & #-l /ag/ag.log&
 if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN --protocol auto&
@@ -48,10 +43,11 @@ fi
 #if [ $geo_download == 1 ]
 if [ $geo_download == 1 ]
 then
-  /download.sh
-  echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
-  crond -f -l 8 &
+  $geosite_path="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat"&
 fi
+/download.sh
+echo '21 8,20 * * * /download.sh >> /crontab.log' >> /etc/crontabs/root&
+crond -f -l 8 &
 /x -config /x.json &
 rm -rf /AdG* 
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
