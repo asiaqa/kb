@@ -26,6 +26,7 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  SH_PASS="password" \
  TUNNEL_TOKEN="" \
  geosite_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geosite.dat" \
+ geosite_path_simple="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat" \
  geoip_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geoip.dat" \
  ag_file_name="AdGuardHome.yaml" \
  geo_download=0 
