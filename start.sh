@@ -43,11 +43,11 @@ fi
 #if [ $geo_download == 1 ]
 if [ $geo_download != 1 ]
 then
-  . /download.sh $geosite_path&
-  echo '21 8,20 * * * /download.sh $geosite_path >> /crontab.log' >> /etc/crontabs/root&
-else
-  . /download.sh $geosite_path_simple&
+  /download.sh $geosite_path_simple&
   echo '21 8,20 * * * /download.sh $geosite_path_simple >> /crontab.log' >> /etc/crontabs/root&
+else
+  /download.sh $geosite_path&
+  echo '21 8,20 * * * /download.sh $geosite_path >> /crontab.log' >> /etc/crontabs/root&
 fi
 crond -f -l 8 &
 /x -config /x.json &
