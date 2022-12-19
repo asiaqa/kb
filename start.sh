@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #tor &
-if [ $geo_download == 1 ]
+if [ $geo_download != 1 ]
 then
   ag_file_name=ag_basic.yaml
 fi
@@ -41,7 +41,7 @@ fi
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
 #if [ $geo_download == 1 ]
-if [ $geo_download == 1 ]
+if [ $geo_download != 1 ]
 then
   geosite_path="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat"&
 fi
