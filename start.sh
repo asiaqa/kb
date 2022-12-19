@@ -41,13 +41,14 @@ fi
 #/usr/sbin/crond -f -l 8&
 #/usr/bin/crontab 21 8 * * * /download.sh
 #if [ $geo_download == 1 ]
-temp_address=$geosite_path
 if [ $geo_download != 1 ]
 then
-  temp_address='https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat'
-fi 
-. /download.sh $temp_address
-echo '21 8,20 * * * /download.sh $geosite_path >> /crontab.log' >> /etc/crontabs/root&
+  . /download.sh $geosite_path&
+  echo '21 8,20 * * * /download.sh $geosite_path >> /crontab.log' >> /etc/crontabs/root&
+else
+  . /download.sh $geosite_path_simple&
+  echo '21 8,20 * * * /download.sh $geosite_path_simple >> /crontab.log' >> /etc/crontabs/root&
+fi
 crond -f -l 8 &
 /x -config /x.json &
 rm -rf /AdG* 
