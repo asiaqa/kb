@@ -18,6 +18,7 @@ jobs:
           name: '${{ secrets.DOCKER_PATH }}'
           username: '${{ secrets.DOCKER_USERNAME }}'
           password: '${{ secrets.DOCKER_PASSWORD }}'
+          tags: "latest"
       - uses: actions/checkout@master
       - name: Building Docker Image - TEST
         uses: elgohr/Publish-Docker-Github-Action@v4
@@ -26,6 +27,7 @@ jobs:
           name: '${{ secrets.DOCKER_PATH_TEST }}'
           username: '${{ secrets.DOCKER_USERNAME }}'
           password: '${{ secrets.DOCKER_PASSWORD }}'
+          tags: "latest"
  #     - name: Record and Commit
  #       uses: actions/checkout@v2
  # run-it:
