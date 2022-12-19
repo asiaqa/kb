@@ -28,7 +28,7 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  geosite_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geosite.dat" \
  geoip_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geoip.dat" \
  ag_file_name="AdGuardHome.yaml" \
- geo_download=1 
+ geo_download=0 
 ARG SH_USER="mp" \
     SH_PASS="password"
 # Password has to be no speical string, such as '/', '\'. command: openssl rand -base64 16
