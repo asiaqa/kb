@@ -181,6 +181,10 @@ filters:
     url: https://raw.githubusercontent.com/neodevpro/neodevhost/master/adblocker
     name: NEO DEV HOST
     id: 1671101356
+  - enabled: true
+    url: https://cdn.jsdelivr.net/gh/badmojr/1Hosts@master/Pro/adblock.txt
+    name: 1Hosts Pro
+    id: 1671439250
 whitelist_filters: []
 user_rules:
   - '||globe-pus.foxitservice.com^$important'
