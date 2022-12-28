@@ -27,7 +27,7 @@ dns:
   blocked_response_ttl: 10
   parental_block_host: family-block.dns.adguard.com
   safebrowsing_block_host: standard-block.dns.adguard.com
-  ratelimit: 20
+  ratelimit: 0
   ratelimit_whitelist: []
   refuse_any: true
   upstream_dns:
@@ -65,7 +65,7 @@ dns:
   ipset: []
   ipset_file: ""
   filtering_enabled: true
-  filters_update_interval: 24
+  filters_update_interval: 12
   parental_enabled: false
   safesearch_enabled: false
   safebrowsing_enabled: false
