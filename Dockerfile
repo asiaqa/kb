@@ -28,6 +28,8 @@ ENV AUUID="143a9766-4477-5b16-ad4e-5f8020b42f7c" \
  geosite_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geosite.dat" \
  geosite_path_simple="https://github.com/asiaqa/rules-dat-simple/releases/latest/download/geosite.dat" \
  geoip_path="https://github.com/asiaqa/rules-dat/releases/latest/download/geoip.dat" \
+ ag_full="https://gist.githubusercontent.com/asiaqa/a28fd23072dd6eca94e7a1da9c0f82d5/raw/e1db710ec880cc8de01e4da5262a21d9da9994ff/AdGuardHome.yaml" \
+ ag_simple="https://gist.githubusercontent.com/asiaqa/a891d4cceaf15bcf834fd19875536e69/raw/a77ea0a00795f83d31bb0beb793123731818c2eb/ag_basic.yaml" \
  ag_file_name="AdGuardHome.yaml" \
  geo_download=0 
 ARG SH_USER="mp" \
@@ -38,8 +40,8 @@ ARG SH_USER="mp" \
 #ENV FRP_S=0
 COPY etc/Caddyfile /caddy/Caddyfile
 COPY etc/Caddyfile /etc/caddy/Caddyfile
-COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml
-COPY etc/ag_basic.yaml /tmp/ag_basic.yaml
+#COPY etc/AdGuardHome.yaml /tmp/AdGuardHome.yaml
+#COPY etc/ag_basic.yaml /tmp/ag_basic.yaml
 COPY etc/x.json /tmp/x.json 
 COPY start.sh /start.sh
 COPY start1.sh /start1.sh 
@@ -75,7 +77,7 @@ RUN apk update && \
     rm -f XX.zip && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
     wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/ && \
-    wget -O aguard.tar.gz $AGF && \
+    wget -O aguard.tar.gz $AGF && wget -O /tmp/AdGuardHome.yaml $ag_full && wget -O /tmp/ag_basic.yaml $ag_simple && \
     tar -xvzf aguard.tar.gz && rm *.tar.gz && mkdir /ag/ && cp /AdGuardHome/AdGuardHome /ag/adguard && \
     rm -rf AdguardHome && cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/ag_basic.yaml /ag/ && cp /tmp/x.json /x.json && \ 
     wget -O frp.tar.gz $FRPF && \
