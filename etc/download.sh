@@ -1,5 +1,5 @@
 #!/bin/sh
-killall x &&\
+killall x
 wget -O /geosite.dat $1 && \
 wget -O /geoip.dat $geoip_path && \
 now=$(date) && \
