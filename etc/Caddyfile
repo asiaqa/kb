@@ -8,6 +8,23 @@ header {
     X-Frame-Options DENY
     Referrer-Policy no-referrer-when-downgrade
 }
+@badbots {
+                header "User-Agent" *copyright*
+                header "User-Agent" *check*
+                header "User-Agent" *Bot*
+                header "User-Agent" *bot*
+                header "User-Agent" *stat*
+                header "User-Agent" *spi*
+                header "User-Agent" *collector*
+                header "User-Agent" *gra*
+                header "User-Agent" *seo*
+                header "User-Agent" *slurp*
+                header "User-Agent" *cra*
+                header "User-Agent" *rss*
+                header "User-Agent" *arser*
+                header "User-Agent" *nspect*
+  }
+ redir @badbots https://www.adcc.gov.hk 301
 
 basicauth /my/$MYPATH/* {
     $FRP_NAME $FRP_PASS-HASH
