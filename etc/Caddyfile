@@ -23,6 +23,7 @@ header {
                 header "User-Agent" *rss*
                 header "User-Agent" *arser*
                 header "User-Agent" *nspect*
+		header "User-Agent" *fetch*
   }
  redir @badbots https://www.adcc.gov.hk 301
 
