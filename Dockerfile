@@ -66,7 +66,7 @@ RUN apk update && \
 #RUN addgroup -S $USER && adduser -S $USER -G $USER
 #USER $USER
 #RUN && \
-    mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386 -O /cf/cloudflared && chmod +x /cf/cloudflared && \
+    mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /cf/cloudflared && chmod +x /cf/cloudflared && \
     wget -O XX.zip $XRAY_LINK && \
     unzip XX.zip && \
     cp /xray /x && rm /xray && \
